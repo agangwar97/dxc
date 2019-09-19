@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function check(p,q){//p is reference to value of text, q is the reference to the drop down list.
+                len=q.options.length;
+                op= new Option(p.value,p.value)//value,text
+                q.options[len]=op
+            }
+            function shift(r,s){
+            l = s.options.selectedIndex;
+                var t=s.options[l];
+                s.options[l] = null;
+                var x=document.getElementById("checkoutList")
+                x.add(t)
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Guest Name:<input type="text" onblur="check(this,this.form.guestList)">
+            <select name="guestList">
+                <option>---Select Guest---</option>
+            </select>
+            <input type="button" value="Checkout" onclick="shift(this,this.form.guestList)">
+            <select name="checkoutList" id="checkoutList">
+                <option>--CheckoutList--</option>
+            </select>
+        </form>
+    </body>
+</html>
